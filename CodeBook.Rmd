@@ -1,0 +1,57 @@
+---
+title: "CodeBook"
+author: "SergKa"
+date: "14 04 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Description of the program objects
+## X_train
+It is a dataframe used for storing of X_train data set, class is data.frame, dimensions are 7352 to 561
+
+## X_test
+It is a dataframe used for storing of X_test data set, class is data.frame, dimensions are 2947 to 561
+
+## mSET
+It is a dataframe used for storing of merged data set, class is data.frame, dimensions are 10299 to 561 (solution of Task 1)
+
+## ColName
+It is a dataframe used for storing of names of variables from separated external file (features.txt), class is data.frame, dimensions are 79 to 1
+
+## mCols & stdCols
+It is temporary dataframes used for storing of searched numbers of columns, which contains the mean and standard deviation as two separated dataframes
+
+## msCols
+It is a dataframe used for storing of unificated and obtained earlier numbers of columns to one vector which was sorted
+
+## mstdFrame
+1. it is a dataframe which includes only extracted measurements on the mean and standard deviation for each measurement (solution of Task 2);
+2. also was been used after addition one column (as the first column) to our resulting dataset with a description of activities (solution of Task 3), because point 3 didn't has any restrictions about place of this adding, so I maked this decision independently; at the same time, our new names of columns don't unique, so we cannot to add them as names of columns (it's a restriction)
+3. in addition, was used after renaming columns in our selected dataset mstdFrame in accordance with its description (solution of Task 4)
+
+## actLabels
+It is a dataframe based on reading kind of activities from separated external file (activity_labels.txt) and with renamed columns
+
+## actVect_tr $ actVect_tst
+It is dataframes used for storing IDs (codes) of activities kinds from separated external files in accordance to kind of datasets (train & test) with renamed columns for the next binding
+
+## actVect
+It is a dataframe after merging the training and the test sets of activities kinds to one data set (vector) with one variable
+
+## actVect2
+It is a dataframe after transformation actVect to a vector with two variables (actVect2) in accordance to values of labels AND their order, in this case we didn't change order of records in our data set
+
+## subVect_tr & subVect_tst
+It is dataframes used for storing Ds (codes) of subjects from appropriated external files in accordance to kind of datasets (train & test) and renaming column for the next binding
+
+## subVect
+It is a dataframe after merging the training and the test sets of subjects to one data set (vector) with one variable
+
+## indTD
+It is a temporary dataframe (tidy data) as a copy of data set obtained by previous stages; also was used for storing the results of calculating of the average of each variable for each activity and each subject, because we have 6 kinds of activity and 30 subjects, so number of rows is equal 6 * 30 = 180 (solution of Task 5)
+
+## melt_TD
+It is a temporary dataframe after reformatting new data set in accordance with kinds of subjects and activities, it means we're changing the dimensions of data set or to unwrap of data set
